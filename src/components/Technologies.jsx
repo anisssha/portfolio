@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import {
   RiReactjsLine,
   // RiJavascriptLine,
-  RiGitBranchLine,
+  // RiGitBranchLine,
 } from "react-icons/ri";
 import { TbBrandNextjs, TbBrandDocker } from "react-icons/tb";
 import {
@@ -42,10 +42,10 @@ const techStack = [
   },
   // { icon: <SiMongodb className="text-7xl text-green-600" />, duration: 3 },
   { icon: <TbBrandNextjs className="text-7xl" />, duration: 2.5 },
-  {
-    icon: <RiGitBranchLine className="text-7xl text-orange-500" />,
-    duration: 3,
-  },
+  // {
+  //   icon: <RiGitBranchLine className="text-7xl text-orange-500" />,
+  //   duration: 3,
+  // },
 
   { icon: <TbBrandDocker className="text-7xl text-blue-400" />, duration: 3 },
 ];

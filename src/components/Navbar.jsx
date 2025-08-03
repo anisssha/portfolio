@@ -1,6 +1,7 @@
 import logo from "../assets/profileLogo.png";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
   return (
@@ -8,6 +9,7 @@ const Navbar = () => {
       <div className="flex flex-shrink-0 h-4 items-center">
         <img src={logo} alt="logo" className="w-10" />
       </div>
+
       <div className="m-8 flex items-center justify-center gap-4 text-2xl">
         <a
           href="https://www.linkedin.com/in/anisha-shrestha-32281125b/"
@@ -33,6 +35,7 @@ const Navbar = () => {
         >
           <FaInstagram />
         </a>
+        <ThemeToggle />
       </div>
     </nav>
   );

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const Contact = () => {
   return (
-    <div className="border-b border-neutral-900 pb-60">
+    <div className=" ">
       <motion.h1
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -100 }}
@@ -16,7 +16,7 @@ const Contact = () => {
         initial={{ opacity: 0, x: -100 }}
         transition={{ duration: 1 }}
         className="my-4 w-[95%] h-[44vw] "
-        src="https://forms.visme.co/formsPlayer/epq1v6nx-responsive-contact-form"
+        // src="https://forms.visme.co/formsPlayer/epq1v6nx-responsive-contact-form"
         frameborder="0"
       ></motion.iframe>
     </div>

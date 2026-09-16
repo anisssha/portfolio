@@ -52,7 +52,7 @@ const techStack = [
 
 const Technologies = () => {
   return (
-    <div className="border-b border-neutral-800 pb-24">
+    <div className="section-border border-b pb-24">
       <motion.h1
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -100 }}
@@ -74,7 +74,7 @@ const Technologies = () => {
             variants={iconVariants(tech.duration)}
             initial="initial"
             animate="animate"
-            className="rounded-2xl border-4 border-neutral-800 p-3"
+            className="tech-card rounded-2xl border-4 p-3"
           >
             {tech.icon}
           </motion.div>

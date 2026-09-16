@@ -79,7 +79,7 @@ const container = (delay) => ({
 
 const Hero = () => {
   return (
-    <div className="border-b border-neutral-900 pb-16 lg:mb-24">
+    <div className="section-border border-b pb-16 lg:mb-24">
       <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-10">
         {/* Text Section */}
         <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left">
@@ -103,7 +103,7 @@ const Hero = () => {
             variants={container(1)}
             initial="hidden"
             animate="visible"
-            className="my-4 max-w-xl px-4 lg:px-0 font-light text-base tracking-tight text-neutral-300"
+            className="muted-text my-4 max-w-xl px-4 lg:px-0 font-light text-base tracking-tight"
           >
             {HERO_CONTENT}
           </motion.p>
@@ -120,9 +120,10 @@ const Hero = () => {
             <img
               src={profilePic}
               alt="Anisha Shrestha"
-              className="w-full h-full object-cover mix-blend-lighten brightness-105"
+              loading="eager"
+              className="hero-photo w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+            <div className="hero-photo-overlay absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
           </motion.div>
         </div>
       </div>

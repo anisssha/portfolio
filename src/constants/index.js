@@ -3,14 +3,9 @@ import project2 from "../assets/projects/project-2.jpg";
 import project3 from "../assets/projects/project-3.jpg";
 import project4 from "../assets/projects/project-4.jpg";
 
-export const HERO_CONTENT = ` Full-Stack Developer with expertise in the MERN stack (MongoDB, Express.js, React.js, Node.js). Passionate
- about crafting dynamic and scalable web applications that deliver exceptional user experiences. Proven ability
- to design, develop, and deploy robust backend systems using Node.js and Express.js, coupled with building
- engaging and interactive user interfaces with React.js and Tailwind CSS. Thrives in collaborative environments,
- adept at problem-solving with a focus on optimizing performance and user satisfaction. Eager to leverage
- strong technical skills and a continuous learning mindset to contribute meaningfully to innovative web projects`;
+export const HERO_CONTENT = ` A Front-End Web Developer passionate about creating interactive applications and experiences on the web.`;
 
-export const ABOUT_TEXT = `I'm a full-stack developer with 1 year of professional experience and 3 years in web development. I specialize in crafting responsive UIs using React.js and building robust backends with Node.js, MongoDB, and MySQL. I'm also exploring DevOps to create scalable and reliable apps. Always learning, always growing.`;
+export const ABOUT_TEXT = ` I am passionate about technology, building things, and continuous learning in the field of software development. I specialize in crafting responsive UIs using React.js and building robust backends with Node.js, MongoDB, and MySQL. I'm also exploring DevOps to create scalable and reliable apps. Always learning, always growing.`;
 
 export const EXPERIENCES = [
   {

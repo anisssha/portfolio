@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import contactPhoto from "../assets/anishaProfiles.jpg";
+import { FiCheck, FiMail, FiSend } from "react-icons/fi";
 import { CONTACT } from "../constants";
 
 const fieldAnimation = (delay) => ({
@@ -11,19 +11,33 @@ const fieldAnimation = (delay) => ({
 });
 
 const Contact = () => {
-  const [submitted, setSubmitted] = useState(false);
+  const [submitted, setSubmitted] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const form = new FormData(event.currentTarget);
-    const subject = encodeURIComponent(`Portfolio contact from ${form.get("name")}`);
-    const body = encodeURIComponent(
-      `Name: ${form.get("name")}\nEmail: ${form.get("email")}\n\n${form.get("message")}`
-    );
+    const formElement = event.currentTarget;
+    const form = new FormData(formElement);
+    form.append("_subject", `Portfolio contact from ${form.get("name")}`);
+    form.append("_replyto", form.get("email"));
+    form.append("_captcha", "false");
+    setSubmitted("sending");
 
-    window.location.href = `mailto:${CONTACT.email}?subject=${subject}&body=${body}`;
-    setSubmitted(true);
-    event.currentTarget.reset();
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${CONTACT.email}`, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: form,
+      });
+
+      if (!response.ok) {
+        throw new Error("Message delivery failed");
+      }
+
+      setSubmitted("success");
+      formElement.reset();
+    } catch {
+      setSubmitted("error");
+    }
   };
 
   return (
@@ -33,7 +47,7 @@ const Contact = () => {
     >
       <div className="mx-auto w-full max-w-5xl">
         <motion.div
-          className="mb-6 text-center"
+          className="contact-heading mb-8 text-center"
           initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
@@ -47,24 +61,64 @@ const Contact = () => {
           </p>
         </motion.div>
 
-        <div className="contact-card mx-auto flex min-w-0 max-w-4xl flex-col gap-6 rounded-md border-t-2 p-4 shadow-md sm:p-6 md:flex-row md:gap-10">
+        <div className="contact-card mx-auto flex min-w-0 max-w-5xl flex-col gap-8 rounded-md border p-5 shadow-md sm:p-8 md:flex-row md:gap-12">
           <motion.div
-            className="flex w-full items-center justify-center md:w-[40%]"
+            className="contact-visual flex w-full items-center justify-center md:w-[40%]"
             initial={{ opacity: 0, scale: 0.75, x: -60 }}
             whileInView={{ opacity: 1, scale: 1, x: 0 }}
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            <img
-              src={contactPhoto}
-              alt="Anisha Shrestha"
-              className="contact-photo h-44 w-44 rounded-full object-cover sm:h-52 sm:w-52 md:h-64 md:w-64"
-              loading="lazy"
-            />
+            <div className="contact-illustration" aria-hidden="true">
+              <motion.div
+                className="contact-orbit contact-orbit-one"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+              />
+              <motion.div
+                className="contact-orbit contact-orbit-two"
+                animate={{ rotate: -360 }}
+                transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
+              />
+              <motion.div
+                className="contact-mail-card"
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <div className="contact-mail-card-top">
+                  <span className="contact-window-dot" />
+                  <span className="contact-window-dot" />
+                  <span className="contact-window-dot" />
+                </div>
+                <div className="contact-mail-icon">
+                  <FiMail />
+                </div>
+                <span className="contact-mail-line contact-mail-line-long" />
+                <span className="contact-mail-line contact-mail-line-short" />
+                <div className="contact-mail-footer">
+                  <span>Message ready</span>
+                  <FiCheck />
+                </div>
+              </motion.div>
+              <motion.div
+                className="contact-float-bubble contact-float-bubble-top"
+                animate={{ y: [0, -12, 0], rotate: [6, 10, 6] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <FiMail />
+              </motion.div>
+              <motion.div
+                className="contact-float-bubble contact-float-bubble-bottom"
+                animate={{ y: [0, 10, 0], rotate: [-8, -4, -8] }}
+                transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <FiSend />
+              </motion.div>
+            </div>
           </motion.div>
 
           <form
-            className="w-full min-w-0 px-0 py-2 md:w-[60%] md:px-2 md:py-4"
+            className="w-full min-w-0 self-center px-0 py-2 md:w-[60%] md:px-2 md:py-4"
             onSubmit={handleSubmit}
           >
             <motion.input
@@ -99,12 +153,26 @@ const Contact = () => {
               {...fieldAnimation(0.36)}
               className="flex min-w-0 flex-wrap items-center gap-3"
             >
-              <button className="contact-submit contact-submit-reference mt-6" type="submit">
+              <button
+                className="contact-submit contact-submit-reference mt-6"
+                type="submit"
+                disabled={submitted === "sending"}
+              >
                 Let&apos;s Talk
               </button>
-              {submitted && (
-                <span className="muted-text mt-6 text-xs">
-                  Opening your email app...
+              {submitted === "sending" && (
+                <span className="muted-text mt-6 text-xs" aria-live="polite">
+                  Sending your message...
+                </span>
+              )}
+              {submitted === "success" && (
+                <span className="contact-form-success mt-6 text-xs" aria-live="polite">
+                  Message sent successfully.
+                </span>
+              )}
+              {submitted === "error" && (
+                <span className="contact-form-error mt-6 text-xs" aria-live="polite">
+                  Something went wrong. Please try again.
                 </span>
               )}
             </motion.div>

@@ -1,8 +1,3 @@
-import project1 from "../assets/projects/project-1.jpg";
-import project2 from "../assets/projects/project-2.jpg";
-import project3 from "../assets/projects/project-3.jpg";
-import project4 from "../assets/projects/project-4.jpg";
-
 export const HERO_CONTENT = ` A Front-End Web Developer passionate about creating interactive applications and experiences on the web.`;
 
 export const ABOUT_TEXT = ` I am passionate about technology, building things, and continuous learning in the field of software development. I specialize in crafting responsive UIs using React.js and building robust backends with Node.js, MongoDB, and MySQL. I'm also exploring DevOps to create scalable and reliable apps. Always learning, always growing.`;
@@ -40,32 +35,21 @@ export const EXPERIENCES = [
 
 export const PROJECTS = [
   {
-    title: "E-Commerce Website",
-    image: project1,
+    title: "Aurora Fragrances",
+    image:
+      "https://images.pexels.com/photos/7850600/pexels-photo-7850600.jpeg?auto=compress&cs=tinysrgb&h=800&w=600",
     description:
-      "A fully functional e-commerce website with features like product listing, shopping cart, and user authentication.",
-    technologies: ["HTML", "CSS", "React", "Node.js", "MongoDB"],
+      "A luxury fragrance storefront with curated collections, product discovery, shopping flows, and a refined editorial design inspired by Maison Lumiere.",
+    technologies: ["React", "JavaScript", "CSS", "Vercel"],
+    liveUrl: "https://project-perfume1.vercel.app/",
   },
   {
-    title: "Task Management App",
-    image: project2,
+    title: "Omnifood",
+    image: "https://omnifood-anisha.netlify.app/image/hero.png",
     description:
-      "An application for managing tasks and projects, with features such as task creation, assignment, and progress tracking.",
-    technologies: ["HTML", "CSS", "Angular", "Firebase"],
-  },
-  {
-    title: "Portfolio Website",
-    image: project3,
-    description:
-      "A personal portfolio website showcasing projects, skills, and contact information.",
-    technologies: ["HTML", "CSS", "React", "Bootstrap"],
-  },
-  {
-    title: "Blogging Platform",
-    image: project4,
-    description:
-      "A platform for creating and publishing blog posts, with features like rich text editing, commenting, and user profiles.",
-    technologies: ["HTML", "CSS", "Vue.js", "Express", "mySQL"],
+      "A responsive healthy-meal subscription experience with personalized meal plans, recipe discovery, pricing plans, testimonials, and a clear conversion-focused flow.",
+    technologies: ["HTML", "CSS", "JavaScript", "Netlify"],
+    liveUrl: "https://omnifood-anisha.netlify.app/",
   },
 ];
 

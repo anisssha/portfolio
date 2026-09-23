@@ -5,24 +5,29 @@
 :root {
   font-family: "Inter", sans-serif;
 }
-/* index.css or App.css */
 :root {
-  --bg: #f8fafc;
-  --text: #172033;
-  --muted: #475569;
-  --border: #cbd5e1;
-  --chip-bg: #e2e8f0;
-  --chip-text: #6b21a8;
-  --accent: #6b21a8;
+  --bg: #f3f9fd;
+  --surface: #ffffff;
+  --surface-muted: #edf4f9;
+  --text: #0d1013;
+  --muted: #64717d;
+  --border: #d6e1e8;
+  --chip-bg: #edf4f9;
+  --chip-text: #0d1013;
+  --accent: #0d1013;
+  --secondary: #64717d;
 }
 html.dark {
-  --bg: #121212;
-  --text: #eee;
-  --muted: #a3a3a3;
-  --border: #262626;
-  --chip-bg: #171717;
-  --chip-text: #e9d5ff;
-  --accent: #f3e8ff;
+  --bg: #0d1115;
+  --surface: #131a20;
+  --surface-muted: #182229;
+  --text: #f3f9fd;
+  --muted: #a5b2bc;
+  --border: #29343c;
+  --chip-bg: #182229;
+  --chip-text: #f3f9fd;
+  --accent: #f3f9fd;
+  --secondary: #a5b2bc;
 }
 html,
 body,
@@ -49,14 +54,19 @@ body {
   background-color: var(--bg);
   background-image: radial-gradient(
     ellipse 80% 80% at 50% -20%,
-    rgba(120, 119, 198, 0.3),
+    rgba(13, 16, 19, 0.045),
     transparent
   );
   transition: background-color 0.45s ease, background-image 0.45s ease;
 }
 
 html.dark .app-background {
-  background-color: #0a0a0a;
+  background-color: #0d1115;
+  background-image: radial-gradient(
+    ellipse 80% 80% at 50% -20%,
+    rgba(243, 249, 253, 0.045),
+    transparent
+  );
 }
 
 .muted-text {
@@ -69,6 +79,15 @@ html.dark .app-background {
 
 .tech-card {
   border-color: var(--border);
+  background-color: var(--surface);
+  box-shadow: 0 0.75rem 2rem rgba(13, 16, 19, 0.06);
+  transition: background-color 0.3s ease, border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.tech-card:hover {
+  border-color: var(--text);
+  box-shadow: 0 1rem 2.5rem rgba(13, 16, 19, 0.1);
 }
 
 .tech-chip {
@@ -251,7 +270,7 @@ html.dark .app-background {
   position: relative;
   overflow: hidden;
   border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
-  background: color-mix(in srgb, var(--bg) 94%, var(--accent));
+  background: var(--surface);
   box-shadow: 0 1.5rem 4rem rgba(15, 23, 42, 0.08);
   transition: background-color 0.45s ease, border-color 0.45s ease,
     box-shadow 0.45s ease, transform 0.45s ease;
@@ -327,7 +346,7 @@ html.dark .app-background {
   padding: 1rem;
   border: 1px solid color-mix(in srgb, var(--accent) 55%, var(--border));
   border-radius: 1rem;
-  background: color-mix(in srgb, var(--bg) 90%, var(--accent));
+  background: var(--surface-muted);
   box-shadow: 0 1.5rem 3rem rgba(15, 23, 42, 0.2);
   transition: background-color 0.45s ease, border-color 0.45s ease,
     box-shadow 0.45s ease;

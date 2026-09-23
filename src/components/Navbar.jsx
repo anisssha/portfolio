@@ -15,7 +15,7 @@ const Navbar = () => {
           href="https://www.linkedin.com/in/anisha-shrestha-32281125b/"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-blue-500 transition-colors"
+          className="transition-colors hover:text-[var(--secondary)]"
         >
           <FaLinkedin />
         </a>
@@ -23,7 +23,7 @@ const Navbar = () => {
           href="https://github.com/anisssha"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-gray-400 transition-colors"
+          className="transition-colors hover:text-[var(--secondary)]"
         >
           <FaGithub />
         </a>
@@ -31,7 +31,7 @@ const Navbar = () => {
           href="https://www.instagram.com/stha_anissha"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-pink-500 transition-colors"
+          className="transition-colors hover:text-[var(--secondary)]"
         >
           <FaInstagram />
         </a>

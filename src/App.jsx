@@ -8,7 +8,7 @@ import Contact from "./components/Contact";
 
 const App = () => {
   return (
-    <div className="app-shell overflow-x-hidden antialiased selection:bg-cyan-300 selection:text-cyan-900">
+    <div className="app-shell overflow-x-hidden antialiased selection:bg-[#0D1013] selection:text-[#F3F9FD]">
       <div className="fixed inset-0 -z-10 h-full w-full"></div>
       <div className="app-background fixed top-0 z-[-2] h-screen w-screen"></div>
       <div className="container mx-auto px-8">
